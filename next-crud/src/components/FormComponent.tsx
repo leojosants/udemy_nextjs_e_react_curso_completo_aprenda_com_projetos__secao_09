@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "./InputComponent";
 import { FormProps } from "./interfaces/FormProps";
 import Button from "./ButtonComponent";
+import Client from "@/core/Client";
 
 export default function Form(props: FormProps): JSX.Element {
     const id = props.client?.id;
@@ -21,11 +22,12 @@ export default function Form(props: FormProps): JSX.Element {
             <Input text='Idade' type='number' value={age} changeValue={setAge} />
 
             <div className={`flex justify-end mt-7`}>
-                <Button color='blue' className={`mr-2`}>
+
+                <Button color='blue' className={`mr-2`} onClick={() => props.changeClient?.(new Client(name, +age, id))}>
                     {id ? 'Alterar' : 'Salvar'}
                 </Button>
 
-                <Button color='gray'>
+                <Button onClick={props.canceled}>
                     Calcelar
                 </Button>
             </div>

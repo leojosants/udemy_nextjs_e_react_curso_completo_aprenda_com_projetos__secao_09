@@ -1,5 +1,3 @@
-import { TitleProps } from "./interfaces/TitleProps";
-
 export default function Title(props: any): JSX.Element {
     return (
         <div className={`flex flex-col justify-center`}>
