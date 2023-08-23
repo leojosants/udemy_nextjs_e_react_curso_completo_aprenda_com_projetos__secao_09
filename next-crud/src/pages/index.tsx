@@ -1,14 +1,15 @@
+import Button from "@/components/ButtonComponent";
 import Layout from "@/components/LayoutComponent";
 import Table from "@/components/TableComponent";
 import Client from "@/core/Client";
 
 export default function Home() {
   const clients: Client[] = [
-    new Client('Leonardo', 39, '1'),
-    new Client('Dalva', 60, '2'),
-    new Client('Thayra', 35, '3'),
-    new Client('Jenny', 21, '4'),
-    new Client('Kayo', 15, '5'),
+    new Client('nome_1', 0, '1'),
+    new Client('nome_2', 1, '2'),
+    new Client('nome_3', 2, '3'),
+    new Client('nome_4', 3, '4'),
+    new Client('nome_5', 4, '5'),
   ];
 
   function selectedClient(client: Client): void {
@@ -23,7 +24,14 @@ export default function Home() {
     <div className={`flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white`}>
 
       <Layout title="Cadastro Simples">
-        <Table clients={clients} selectedClient={selectedClient} excludedClient={excludedClient} />
+        <div className={`flex justify-end`}>
+          <Button color='green' className={`mb-4`}>Novo Cliente</Button>
+        </div>
+        <Table
+          clients={clients}
+          selectedClient={selectedClient}
+          excludedClient={excludedClient}
+        />
       </Layout>
 
     </div>
