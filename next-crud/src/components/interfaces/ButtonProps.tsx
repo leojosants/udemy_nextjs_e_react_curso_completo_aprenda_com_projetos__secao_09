@@ -1,6 +1,6 @@
 import { Color } from "../types/Color";
 
-export interface ButtonProps { 
+export interface ButtonProps {
     color?: Color;
     className?: string;
     children: any;

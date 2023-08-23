@@ -7,6 +7,7 @@ import Client from "@/core/Client";
 import { useState } from "react";
 
 export default function Home() {
+  const [client, setClient] = useState<Client>(Client.empty());
   const [visible, setVisible] = useState<Visible>('table');
 
   const clients: Client[] = [
@@ -18,15 +19,22 @@ export default function Home() {
   ];
 
   function selectedClient(client: Client): void {
-    console.log(client.name);
+    setClient(client);
+    setVisible('form');
   };
 
   function excludedClient(client: Client): void {
     console.log(client.age);
   };
 
-  function saveClient(client: Client) { 
+  function newClient():void {
+    setClient(Client.empty());
+    setVisible('form');
+  };
+
+  function saveClient(client: Client): void  {
     console.log(client);
+    setVisible('table');
   };
 
   return (
@@ -39,7 +47,7 @@ export default function Home() {
               <>
                 <div className={`flex justify-end`}>
 
-                  <Button color='green' className={`mb-4`} onClick={() => setVisible('form')}>
+                  <Button color='green' className={`mb-4`} onClick={newClient}>
                     Novo Cliente
                   </Button>
 
@@ -49,7 +57,7 @@ export default function Home() {
               </>
             )
             : (
-              <Form client={clients[0]} changeClient={saveClient} canceled={() => setVisible('table')} />
+              <Form client={client} changeClient={saveClient} canceled={() => setVisible('table')} />
             )
         }
 
