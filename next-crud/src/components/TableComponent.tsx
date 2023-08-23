@@ -4,9 +4,15 @@ export default function Table(props: TableProps): JSX.Element {
     function renderHeader(): JSX.Element {
         return (
             <tr>
-                <th>Código</th>
-                <th>Nome  </th>
-                <th>Idade </th>
+                <th className={`text-left p-4`}>
+                    Código
+                </th>
+                <th className={`text-left p-4`}>
+                    Nome
+                </th>
+                <th className={`text-left p-4`}>
+                    Idade
+                </th>
             </tr>
         );
     };
@@ -15,10 +21,16 @@ export default function Table(props: TableProps): JSX.Element {
         return (
             props.clients?.map((client, index) => {
                 return (
-                    <tr key={index}>
-                        <td>{client.id}  </td>
-                        <td>{client.name}</td>
-                        <td>{client.age} </td>
+                    <tr key={index} className={`${index % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}>
+                        <td className={`text-left p-4`}>
+                            {client.id}
+                        </td>
+                        <td className={`text-left p-4`}>
+                            {client.name}
+                        </td>
+                        <td className={`text-left p-4`}>
+                            {client.age}
+                        </td>
                     </tr>
                 );
             })
@@ -26,9 +38,12 @@ export default function Table(props: TableProps): JSX.Element {
     };
 
     return (
-        <table>
-            <thead>{renderHeader()} </thead>
-            <tbody>{renderData()}   </tbody>
+        <table className={`w-full rounded-xl overflow-hidden`}>
+            <thead className={`text-gray-100 bg-gradient-to-r from-purple-500 to-purple-800`}>
+                {renderHeader()}
+            </thead>
+
+            <tbody>{renderData()}</tbody>
         </table>
     );
 };
