@@ -1,6 +1,6 @@
-import Client from "@/core/Client";
+import Client from '../../core/Client'
 
-export interface TableProps { 
+export interface TableProps {
     clients: Client[];
     selectedClient?: (client: Client) => void;
     excludedClient?: (client: Client) => void;

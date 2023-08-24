@@ -1,6 +1,6 @@
-import Client from "@/core/Client";
+import Client from '../../core/Client';
 
-export interface FormProps { 
+export interface FormProps {
     client: Client;
     changeClient?: (client: Client) => void;
     canceled?: () => void;

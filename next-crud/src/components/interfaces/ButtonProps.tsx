@@ -1,4 +1,4 @@
-import { Color } from "../types/Color";
+import { Color } from '../types/Color';
 
 export interface ButtonProps {
     color?: Color;

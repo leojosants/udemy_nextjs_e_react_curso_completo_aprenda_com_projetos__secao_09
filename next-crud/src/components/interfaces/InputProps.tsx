@@ -1,8 +1,7 @@
-import { InputType } from "../types/Input";
+import { Input } from '../types/Input';
 
 export interface InputProps {
-    // type?: 'text' | 'number';
-    type?: InputType;
+    type?: Input;
     text: string;
     value: any;
     readOnly?: boolean;
